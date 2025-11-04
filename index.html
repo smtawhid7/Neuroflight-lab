@@ -791,7 +791,7 @@
   </section>
 
   <!-- Footer -->
-  <footer>
+ <footer>
     <p>© 2025 NeuroFlight Lab. All rights reserved. | Official Organization Documentation Version 1.0</p>
   </footer>
 
@@ -803,6 +803,11 @@
         document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
       });
     });
+
+    // Hamburger Menu Toggle
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('active');
+    }
 
     // Fade in on scroll
     const observer = new IntersectionObserver(entries => {
@@ -823,6 +828,7 @@
   </script>
 </body>
 </html>
+
 
 
 
