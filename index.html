@@ -791,43 +791,37 @@
   </section>
 
   <!-- Footer -->
- <footer>
-    <p>© 2025 NeuroFlight Lab. All rights reserved. | Official Organization Documentation Version 1.0</p>
-  </footer>
-
-  <script>
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        e.preventDefault();
-        document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-
-    // Hamburger Menu Toggle
-    function toggleMenu() {
-      document.querySelector('.nav-links').classList.toggle('active');
-    }
-
-    // Fade in on scroll
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = 1;
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.fade-in').forEach(el => {
-      el.style.opacity = 0;
-      el.style.transform = 'translateY(30px)';
-      el.style.transition = 'all 0.8s ease';
-      observer.observe(el);
-    });
-  </script>
+<!-- Footer -->
+  <footer>
+    <p>© 2025 NeuroFlight Lab. All rights reserved. | Official Organization Documentation Version 1.0</p>
+  </footer>
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+    // Fade in on scroll
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => {
+      el.style.opacity = 0;
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'all 0.8s ease';
+      observer.observe(el);
+    });
+  </script>
 </body>
 </html>
+
 
 
 
