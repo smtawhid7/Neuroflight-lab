@@ -4,34 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>NeuroFlight Lab</title>
-
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="icon" href="logo.ico" sizes="any">
 
-  <!-- Preconnect for Google Fonts -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 
-  <!-- SEO Meta Tags -->
+  <!-- SEO / OG -->
   <meta name="description" content="NeuroFlight Lab: Advancing AI, Robotics, Biotechnology & Software for a Sustainable Future.">
   <meta name="keywords" content="AI, Robotics, Biotech, NeuroFlight, Drone AI, Bangladesh, Research Lab">
   <meta name="author" content="NeuroFlight Lab">
-
-  <!-- Open Graph (Facebook, LinkedIn) -->
   <meta property="og:title" content="NeuroFlight Lab">
   <meta property="og:description" content="AI × Robotics × Biotech for Sustainable Future">
   <meta property="og:image" content="https://www.neuroflightlab.org/logo.png">
   <meta property="og:url" content="https://www.neuroflightlab.org">
   <meta property="og:type" content="website">
-
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="NeuroFlight Lab">
   <meta name="twitter:description" content="AI × Robotics × Biotech">
   <meta name="twitter:image" content="https://www.neuroflightlab.org/logo.png">
-
   <style>
     :root {
       --primary: #1a73e8;
@@ -70,7 +64,6 @@
     .nav-container {
       max-width: 1400px; margin: 0 auto;
       display: flex; justify-content: space-between; align-items: center;
-      position: relative;
     }
     .logo {
       display: flex;
@@ -100,12 +93,6 @@
       transition: var(--transition);
     }
     .nav-links a:hover { color: var(--primary); }
-
-    /* Hamburger Menu */
-    .menu-toggle {
-      display: none;
-      background: none; border: none; font-size: 1.8rem; color: var(--text); cursor: pointer;
-    }
 
     /* HERO */
     .hero {
@@ -324,6 +311,11 @@
       background: #0f172a; color: #cbd5e1; text-align: center;
       padding: 3rem 5%; font-size: 0.9rem;
     }
+    .social-links a {
+      color: #cbd5e1; margin: 0 1rem; font-size: 1.5rem;
+      transition: var(--transition);
+    }
+    .social-links a:hover { color: var(--primary); }
 
     /* Animations */
     @keyframes fadeInDown {
@@ -342,14 +334,7 @@
     @media (max-width: 768px) {
       .hero h1 { font-size: 3.2rem; }
       .hero p { font-size: 1.1rem; }
-      .menu-toggle { display: block; }
-      .nav-links {
-        position: fixed; top: 70px; left: 0; width: 100%; background: white;
-        flex-direction: column; padding: 1rem; box-shadow: var(--shadow);
-        transform: translateY(-100%); transition: 0.4s; z-index: 999;
-      }
-      .nav-links.active { transform: translateY(0); }
-      .nav-links a { padding: 0.8rem 0; text-align: center; }
+      .nav-links { display: none; }
       .milestone, .milestone:nth-child(even) { flex-direction: column; }
       .milestone-content { width: 100%; margin-top: 2rem; }
       .milestone::before { left: 20px; transform: translateX(0); }
@@ -357,35 +342,6 @@
       .team-grid { grid-template-columns: 1fr; }
     }
   </style>
-
-  <!-- Google Schema for Logo -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "NeuroFlight Lab",
-    "url": "https://www.neuroflightlab.org",
-    "logo": "https://www.neuroflightlab.org/logo.png",
-    "description": "Advancing AI, Robotics, Biotechnology & Software for a Sustainable Future.",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Mirpur-10",
-      "addressLocality": "Dhaka",
-      "postalCode": "1216",
-      "addressCountry": "BD"
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+8801710549763",
-      "contactType": "Customer Service",
-      "email": "info@neuroflightlab.org"
-    },
-    "sameAs": [
-      "https://www.facebook.com/people/NeuroFlight-Lab/61579472205971/",
-      "https://linkedin.com/company/neuroflightlab"
-    ]
-  }
-  </script>
 </head>
 <body>
 
@@ -393,10 +349,9 @@
   <nav>
     <div class="nav-container">
       <a href="#home" class="logo">
-        <img src="logo.png" alt="NeuroFlight Lab Logo - AI, Robotics, Biotech Research">
+        <img src="logo.jpg" alt="NeuroFlight Lab Logo">
         NeuroFlight Lab
       </a>
-      <button class="menu-toggle" onclick="toggleMenu()">Menu</button>
       <div class="nav-links">
         <a href="#mission">About</a>
         <a href="#org-structure">Structure</a>
@@ -790,7 +745,7 @@
     </p>
   </section>
 
-<!-- Footer -->
+  <!-- Footer -->
   <footer>
     <p>© 2025 NeuroFlight Lab. All rights reserved. | Official Organization Documentation Version 1.0</p>
   </footer>
@@ -823,27 +778,6 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
