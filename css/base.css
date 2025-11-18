@@ -168,7 +168,7 @@ a {
 /* People card images — show full image without cropping */
 .people .person img{
   width: 100%;
-  height: auto;            /* don't force height */
+  height: 300px;            /* don't force height */
   object-fit: contain;     /* show full image */
   background: #0e1430;     /* letterbox background for empty space */
   border-radius: 12px;
@@ -368,4 +368,5 @@ a {
         height: 150px
     }
 }
+
 
