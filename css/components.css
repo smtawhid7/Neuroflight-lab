@@ -1,0 +1,48 @@
+/* Components */
+.chip {
+    background: #121a36;
+    border: 1px solid #26305b;
+    color: #dce7ff;
+    padding: .35rem .7rem;
+    border-radius: 999px;
+    cursor: pointer
+}
+
+    .chip.active {
+        background: #24305f;
+        border-color: #4152a0
+    }
+
+.filters {
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+    margin: 1rem 0
+}
+
+.news-card {
+    background: var(--card);
+    border: 1px solid #1f2749;
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column
+}
+
+    .news-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover
+    }
+
+    .news-card .pad {
+        padding: .8rem
+    }
+
+    .news-card .meta {
+        display: flex;
+        justify-content: space-between;
+        color: var(--muted);
+        font-size: .85rem;
+        margin-top: .4rem
+    }

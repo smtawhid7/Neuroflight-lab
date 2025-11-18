@@ -1,855 +1,117 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!doctype html>
+<html lang="bn">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NeuroFlight Lab</title>
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="logo.png">
-  <link rel="icon" href="logo.ico" sizes="any">
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
-
-  <!-- SEO / OG -->
-  <meta name="description" content="NeuroFlight Lab: Advancing AI, Robotics, Biotechnology & Software for a Sustainable Future.">
-  <meta name="keywords" content="AI, Robotics, Biotech, NeuroFlight, Drone AI, Bangladesh, Research Lab">
-  <meta name="author" content="NeuroFlight Lab">
-  <meta property="og:title" content="NeuroFlight Lab">
-  <meta property="og:description" content="AI × Robotics × Biotech for Sustainable Future">
-  <meta property="og:image" content="https://www.neuroflightlab.org/logo.png">
-  <meta property="og:url" content="https://www.neuroflightlab.org">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="NeuroFlight Lab">
-  <meta name="twitter:description" content="AI × Robotics × Biotech">
-  <meta name="twitter:image" content="https://www.neuroflightlab.org/logo.png">
-  <style>
-    :root {
-      --primary: #1a73e8;
-      --primary-dark: #155ab6;
-      --accent: #34c759;
-      --text: #1a1f36;
-      --text-light: #4a5568;
-      --bg: #f8fafc;
-      --card: #ffffff;
-      --border: #e2e8f0;
-      --shadow: 0 12px 30px rgba(0,0,0,0.1);
-      --radius: 18px;
-      --transition: all 0.3s ease;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-
-    /* Sticky Navigation */
-    nav {
-      position: fixed;
-      top: 0; width: 100%;
-      background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(12px);
-      z-index: 1000;
-      padding: 1rem 5%;
-      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-      transition: var(--transition);
-    }
-    .nav-container {
-      max-width: 1400px; margin: 0 auto;
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      font-weight: 800;
-      font-size: 1.6rem;
-      color: var(--primary);
-    }
-    .logo img {
-      height: 40px;
-      width: auto;
-      border-radius: 8px;
-      margin-right: 12px;
-      transition: var(--transition);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    .logo img:hover {
-      transform: scale(1.08);
-      box-shadow: 0 6px 20px rgba(26,115,232,0.3);
-    }
-    .nav-links {
-      display: flex; gap: 2rem;
-    }
-    .nav-links a {
-      text-decoration: none; color: var(--text); font-weight: 500;
-      transition: var(--transition);
-    }
-    .nav-links a:hover { color: var(--primary); }
-
-    /* HERO */
-    .hero {
-      height: 100vh;
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.75)), 
-                  url('bio.jpg') center/cover no-repeat;
-      display: flex; align-items: center; justify-content: center;
-      text-align: center; color: white; position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(26,115,232,0.8), rgba(52,199,89,0.6));
-      opacity: 0.7;
-    }
-    .hero::after {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="white" opacity="0.1"/><circle cx="80" cy="80" r="2" fill="white" opacity="0.1"/></svg>') repeat;
-      animation: float 20s infinite linear;
-    }
-    @keyframes float {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(-100px); }
-    }
-    .hero-content {
-      position: relative; z-index: 2; max-width: 1000px; padding: 0 20px;
-    }
-    .hero h1 {
-      font-size: 5.5rem; font-weight: 800; margin-bottom: 1rem;
-      background: linear-gradient(90deg, #fff, #a0e7ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: fadeInDown 1.2s ease-out;
-      text-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    }
-    .hero p {
-      font-size: 1.5rem; margin-bottom: 2.5rem; font-weight: 400;
-      animation: fadeInUp 1s ease-out 0.4s forwards; opacity: 0;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
-    }
-    .btn {
-      display: inline-block; padding: 16px 40px;
-      background: linear-gradient(135deg, white, #f0f4ff);
-      color: var(--primary); font-weight: 700; font-size: 1.2rem;
-      border-radius: 50px; text-decoration: none;
-      box-shadow: 0 8px 25px rgba(26,115,232,0.4), 0 0 0 4px rgba(255,255,255,0.3);
-      animation: fadeInUp 1s ease-out 0.8s forwards; opacity: 0;
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
-    }
-    .btn::before {
-      content: ''; position: absolute; top: 0; left: -100%;
-      width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-      transition: 0.6s;
-    }
-    .btn:hover::before { left: 100%; }
-    .btn:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(26,115,232,0.5), 0 0 0 6px rgba(255,255,255,0.4);
-    }
-
-    /* Sections */
-    section { padding: 100px 5%; max-width: 1400px; margin: 0 auto; }
-    h2 {
-      font-size: 2.8rem; text-align: center; margin-bottom: 3rem;
-      font-weight: 700; color: var(--text);
-    }
-
-    /* Grid */
-    .grid-3 {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem; margin-top: 2rem;
-    }
-    .card {
-      background: var(--card); padding: 2rem; border-radius: var(--radius);
-      box-shadow: var(--shadow); transition: var(--transition);
-    }
-    .card:hover { transform: translateY(-10px); }
-    .card h3 {
-      font-size: 1.5rem; margin-bottom: 1rem; color: var(--primary);
-    }
-
-    /* Pillars */
-    .pillars {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem; margin-top: 2rem;
-    }
-    .pillar {
-      background: rgba(255,255,255,0.15);
-      backdrop-filter: blur(8px);
-      color: white; padding: 2rem; border-radius: var(--radius);
-      text-align: center; border: 1px solid rgba(255,255,255,0.2);
-    }
-    .pillar h3 { font-size: 1.4rem; margin-bottom: 0.8rem; }
-
-    /* Team Grid */
-    .team-grid {
-      display: grid; 
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem; 
-      margin-top: 3rem;
-    }
-    .team-card {
-      text-align: center; 
-      background: white; 
-      padding: 1.8rem;
-      border-radius: var(--radius); 
-      box-shadow: var(--shadow);
-      transition: var(--transition);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-    }
-    .team-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.12);
-    }
-    .team-card img {
-      width: 100px; height: 100px; border-radius: 50%;
-      object-fit: cover; margin: 0 auto 1rem;
-      border: 4px solid var(--primary);
-    }
-    .team-card h4 { 
-      font-size: 1.2rem; margin: 0.5rem 0; 
-      color: var(--text);
-    }
-    .team-card .role { 
-      font-size: 0.95rem; 
-      color: var(--primary); 
-      font-weight: 600; 
-      margin: 0.3rem 0;
-    }
-    .team-card .aff { 
-      font-size: 0.85rem; 
-      color: var(--text-light); 
-      margin-bottom: 0.8rem;
-    }
-    .team-card .bio {
-      font-size: 0.88rem;
-      color: var(--text-light);
-      line-height: 1.55;
-      margin: 0.8rem 0;
-      flex-grow: 1;
-    }
-    .team-card .expertise {
-      font-size: 0.85rem;
-      color: var(--accent);
-      font-weight: 600;
-      margin-top: auto;
-      padding-top: 0.5rem;
-      border-top: 1px solid #e2e8f0;
-    }
-
-    /* Roadmap */
-    .roadmap {
-      position: relative; margin: 4rem 0;
-    }
-    .roadmap::before {
-      content: ''; position: absolute; top: 0; bottom: 0; left: 50%;
-      width: 4px; background: var(--primary); transform: translateX(-50%);
-    }
-    .milestone {
-      display: flex; justify-content: space-between; align-items: center;
-      margin: 3rem 0; position: relative;
-    }
-    .milestone:nth-child(even) { flex-direction: row-reverse; }
-    .milestone::before {
-      content: ''; position: absolute; width: 20px; height: 20px;
-      background: var(--accent); border: 5px solid white; border-radius: 50%;
-      left: 50%; transform: translateX(-50%); z-index: 1;
-      box-shadow: 0 0 0 4px var(--primary);
-    }
-    .milestone-content {
-      width: 45%; background: white; padding: 1.5rem;
-      border-radius: var(--radius); box-shadow: var(--shadow);
-    }
-
-    /* Infrastructure */
-    .tools-list {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem; margin-top: 2rem;
-    }
-    .tool-item {
-      background: rgba(255,255,255,0.12); padding: 1.6rem; border-radius: var(--radius);
-      border-left: 5px solid var(--accent);
-      color: white !important;
-      font-weight: 500;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.5);
-      backdrop-filter: blur(4px);
-    }
-    .tool-item strong {
-      color: #a0e7ff;
-    }
-
-    /* Docs Section */
-    #docs {
-      background: #f1f5f9; text-align: center; padding: 80px 5%;
-    }
-    .doc-card {
-      max-width: 400px; margin: 2rem auto;
-      background: white; padding: 2rem; border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-    .doc-card a {
-      display: inline-block; margin-top: 1rem;
-      padding: 12px 28px; background: var(--primary); color: white;
-      border-radius: 50px; text-decoration: none; font-weight: 600;
-      box-shadow: 0 4px 15px rgba(26,115,232,0.3);
-    }
-
-    /* Footer */
-    footer {
-      background: #0f172a; color: #cbd5e1; text-align: center;
-      padding: 3rem 5%; font-size: 0.9rem;
-    }
-    .social-links a {
-      color: #cbd5e1; margin: 0 1rem; font-size: 1.5rem;
-      transition: var(--transition);
-    }
-    .social-links a:hover { color: var(--primary); }
-
-    /* Animations */
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .fade-in {
-      opacity: 0; animation: fadeInUp 0.8s forwards;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 3.2rem; }
-      .hero p { font-size: 1.1rem; }
-      .nav-links { display: none; }
-      .milestone, .milestone:nth-child(even) { flex-direction: column; }
-      .milestone-content { width: 100%; margin-top: 2rem; }
-      .milestone::before { left: 20px; transform: translateX(0); }
-      .roadmap::before { left: 20px; }
-      .team-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+    <meta charset="utf-8">
+    <title>Neuroflight Lab — Innovation, Robotics, Biotech</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Neuroflight Lab: Administration, Innovation & Research, Software Development—Biomechatronics, Robotics, Biotechnology, and Plant Breeding.">
+    <link rel="canonical" href="/">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/components.css">
+    <link rel="stylesheet" href="/css/dark.css" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="icon" href="/assets/images/favicon.png">
+    <meta property="og:title" content="Neuroflight Lab">
+    <meta property="og:description" content="Biomechatronics, Robotics, Biotechnology, and Software for science.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="/assets/images/og-cover.jpg">
+    <meta name="theme-color" content="#0b1020">
+    <script type="application/ld+json">
+        {
+          "@context":"https://schema.org",
+          "@type":"ResearchOrganization",
+          "name":"Neuroflight Lab",
+          "url":"https://your-domain.example",
+          "department":[
+            {"@type":"Organization","name":"Administration"},
+            {"@type":"ResearchProject","name":"Department of Innovation and Research"},
+            {"@type":"Organization","name":"Department of Software Development"}
+          ]
+        }
+    </script>
 </head>
 <body>
+    <header class="site-header">
+        <a class="logo" href="/">Neuroflight Lab</a>
+        <nav class="nav">
+            <a href="/administration.html">Administration</a>
+            <a href="/innovation.html">Innovation & Research</a>
+            <a href="/software.html">Software</a>
+            <a href="/news.html">News</a>
+            <a class="btn" href="/contact.html">Contact</a>
+            <button id="toggleTheme" aria-label="Toggle theme">🌓</button>
+        </nav>
+    </header>
 
-  <!-- NAV -->
-  <nav>
-    <div class="nav-container">
-      <a href="#home" class="logo">
-        <img src="logo.jpg" alt="NeuroFlight Lab Logo">
-        NeuroFlight Lab
-      </a>
-      <div class="nav-links">
-        <a href="#mission">About</a>
-        <a href="#org-structure">Structure</a>
-        <a href="#pillars">Research</a>
-        <a href="#team">Team</a>
-        <a href="#infra">Infra</a>
-        <a href="#docs">Doc</a>
-        <a href="#roadmap">Roadmap</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </nav>
+    <main>
+        <section class="hero parallax">
+            <div class="hero-content">
+                <h1>Innovation in Motion</h1>
+                <p>Biomechatronics, animal robotics, aerodynamics, and biotech—built with rigorous science and clean software.</p>
+                <div class="cta">
+                    <a class="btn primary" href="/innovation.html">Explore Research</a>
+                    <a class="btn ghost" href="/news.html">See Updates</a>
+                </div>
+            </div>
+            <div class="hero-art" aria-hidden="true">
+                <div class="orb orb-1"></div>
+                <div class="orb orb-2"></div>
+                <div class="grid-3d"></div>
+            </div>
+        </section>
 
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <h1>NeuroFlight Lab</h1>
-      <p>Advancing AI, Robotics, Biotechnology & Software for a Sustainable Future</p>
-      <a href="#mission" class="btn">Discover Our Mission</a>
-    </div>
-  </section>
+        <section class="section">
+            <h2>Departments</h2>
+            <div class="cards">
+                <a class="card link-card" href="/administration.html">
+                    <h3>Administration</h3>
+                    <p>Leadership, operations, and strategic support for research and development.</p>
+                </a>
+                <a class="card link-card" href="/innovation.html">
+                    <h3>Innovation & Research</h3>
+                    <p>Biomechatronics, Robotics, Biotechnology, and Plant Breeding programs.</p>
+                </a>
+                <a class="card link-card" href="/software.html">
+                    <h3>Software Development</h3>
+                    <p>Platforms, pipelines, and tooling enabling scientific discovery.</p>
+                </a>
+            </div>
+        </section>
 
-  <!-- 1. Mission, Vision, Values -->
-  <section id="mission">
-    <h2>Our Foundation</h2>
-    <div class="grid-3">
-      <div class="card fade-in">
-        <h3>Mission</h3>
-        <p>"To advance interdisciplinary research and innovation at the intersection of <strong>AI, robotics, biotechnology, and software systems</strong> — empowering intelligent, sustainable, and human-centered solutions through collaboration, education, and real-world impact."</p>
-      </div>
-      <div class="card fade-in" style="animation-delay: 0.2s;">
-        <h3>Vision</h3>
-        <p>To become a globally recognized hub for AI-driven interdisciplinary innovation, bridging academia, industry, and society to solve complex challenges in health, environment, automation, and digital transformation.</p>
-      </div>
-      <div class="card fade-in" style="animation-delay: 0.4s;">
-        <h3>Core Values</h3>
-        <ul style="margin-top:1rem; text-align:left; font-size:0.95rem;">
-          <li><strong>Innovation</strong>: Pushing boundaries with bold, creative, and practical solutions.</li>
-          <li><strong>Collaboration</strong>: Cross-disciplinary teamwork across departments, universities, and industries.</li>
-          <li><strong>Integrity</strong>: Transparent, ethical, and responsible research and development.</li>
-          <li><strong>Impact</strong>: Prioritizing real-world applications that benefit humanity and the planet.</li>
-          <li><strong>Excellence</strong>: Upholding the highest standards in research, code, and education.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+        <section class="section">
+            <h2>Centers</h2>
+            <div class="cards">
+                <a class="card link-card" href="/center-bio-robotics.html">
+                    <h3>Center of Biomechatronics & Robotics</h3>
+                    <p>Animal-inspired robotics and avian aerodynamics driven by stereo-vision.</p>
+                </a>
+                <a class="card link-card" href="/center-biotech.html">
+                    <h3>Center of Biotechnology & Plant Breeding</h3>
+                    <p>Resilient crops, marker-assisted selection, and phenotype-to-genotype pipelines.</p>
+                </a>
+            </div>
+        </section>
 
-  <!-- 4. Organizational Structure -->
-  <section id="org-structure" style="background: url('plant.jpg') center/cover no-repeat; color:white; position:relative;">
-    <div style="background:rgba(0,0,0,0.7); padding:80px 5%; border-radius:var(--radius);">
-      <h2 style="color:white;">Organizational Structure</h2>
-      <h3 style="color:#a0e7ff; margin-bottom:1rem;">Leadership & Governance</h3>
-      <ul style="columns:2; margin-bottom:2rem; font-size:1.1rem;">
-        <li>Principal Investigator: <strong>Prof. Dr. Dip Nandi</strong></li>
-        <li>Scientific Advisor: <strong>Prof. Dr. Md. Imtiaz Uddin</strong></li>
-        <li>Scientific Advisor: <strong>Dr. Debajyoti Karmaker</strong></li>
-        <li>Director & Lead Researcher: <strong>S.M. Tawhid</strong></li>
-      </ul>
+        <section class="section">
+            <h2>Latest News</h2>
+            <div id="homeNews" class="news-grid"></div>
+            <div class="center"><a class="btn" href="/news.html">View all posts</a></div>
+        </section>
+    </main>
 
-      <h3 style="color:#a0e7ff; margin:2rem 0 1rem;">Departments</h3>
-      <div class="grid-3">
-        <div class="card" style="background:rgba(255,255,255,0.95); color:var(--text);">
-          <h3>Biomechatronics & Robotics</h3>
-          <p><strong>Lead:</strong> Dr. Debajyoti Karmaker<br>Autonomous systems, bio-inspired robots, human-robot interaction</p>
-        </div>
-        <div class="card" style="background:rgba(255,255,255,0.95); color:var(--text);">
-          <h3>Machine Learning & Computer Vision</h3>
-          <p><strong>Lead:</strong> <br>Deep learning, visual AI, predictive modeling</p>
-        </div>
-        <div class="card" style="background:rgba(255,255,255,0.95); color:var(--text);">
-          <h3>Biotechnology & Plant Breeding</h3>
-          <p><strong>Lead:</strong> Prof. Dr. Md. Imtiaz Uddin<br>Genetic engineering, climate-resilient crops, bioinformatics</p>
-        </div>
-      </div>
-      <div class="card" style="background:rgba(255,255,255,0.95); color:var(--text); margin-top:1rem;">
-        <h3>Software Development</h3>
-        <p><strong>Lead:</strong> <br>Full-stack systems, AI platforms, open-source tools</p>
-      </div>
-    </div>
-  </section>
+    <footer class="site-footer">
+        <p>© <span id="year"></span> Neuroflight Lab • All rights reserved.</p>
+    </footer>
 
-  <!-- 5. Research Pillars -->
-  <section id="pillars" style="background: url('rob.png') center/cover no-repeat; color:white; position:relative;">
-    <div style="background:rgba(0,0,0,0.75); padding:80px 5%; border-radius:var(--radius);">
-      <h2 style="color:white;">Research & Innovation Pillars</h2>
-      <div class="pillars">
-        <div class="pillar">
-          <h3>AI-Powered Robotics</h3>
-          <p>Develop adaptive, safe, and intelligent robotic systems<br><em>NeuroFlight Drone Swarm Intelligence, Soft Robotics for Rehabilitation</em></p>
-        </div>
-        <div class="pillar">
-          <h3>Biotech for Sustainability</h3>
-          <p>Engineer biological systems for food security and health<br><em>CRISPR-based drought-resistant rice, Microbial fuel cells</em></p>
-        </div>
-        <div class="pillar">
-          <h3>Intelligent Software Systems</h3>
-          <p>Build scalable, secure, and user-centric AI platforms<br><em>NeuroFlight Soft (AI research framework)</em></p>
-        </div>
-        <div class="pillar">
-          <h3>Interdisciplinary Integration</h3>
-          <p>Combine AI + Biotech + Robotics<br><em>Bio-hybrid drones for precision agriculture</em></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. Key Activities -->
-  <section style="background:#f1f5f9;">
-    <h2>Key Activities</h2>
-    <ol style="max-width:800px; margin:2rem auto; font-size:1.1rem; line-height:2;">
-      <li><strong>Research Projects</strong> – Peer-reviewed studies, prototypes, and publications</li>
-      <li><strong>Software Development</strong> – Open-source tools, internal platforms, industry-grade apps</li>
-      <li><strong>Workshops & Training</strong> – AI, robotics, and biotech bootcamps for students</li>
-      <li><strong>Industry Collaboration</strong> – Partnerships with tech firms, startups, and NGOs</li>
-      <li><strong>Student Mentorship</strong> – Thesis supervision, internships, research assistantships</li>
-    </ol>
-  </section>
-
-  <!-- 7. Team Directory -->
-  <section id="team">
-    <h2>Team Directory </h2>
-    <div class="team-grid">
-
-      <!-- Prof. Dr. Dip Nandi -->
-      <div class="team-card">
-        <img src="dip.jpg" alt="Prof. Dr. Dip Nandi">
-        <h4>Prof. Dr. Dip Nandi</h4>
-        <p class="role">Principal Investigator</p>
-        <p class="aff">Associate Dean, FST, AIUB</p>
-        <p class="bio">
-          Leads all research activities of the lab, providing guidance and mentorship to members.<br>
-          Ph.D. from RMIT University, Australia. M.Sc. from University of Melbourne.
-        </p>
-        <p class="expertise"><strong>Expertise:</strong> AI, Robotics, Education</p>
-      </div>
-
-      <!-- Prof. Dr. Md. Imtiaz Uddin -->
-      <div class="team-card">
-        <img src="imtiaz.png" alt="Prof. Dr. Md. Imtiaz Uddin">
-        <h4>Prof. Dr. Md. Imtiaz Uddin</h4>
-        <p class="role">Scientist (Biotech)</p>
-        <p class="aff">Professor, Universiti Malaya</p>
-        <p class="bio">
-          Leads Biotechnology Lab and research.<br>
-          Ph.D. from Tottori University, Japan. M.S. from Bangladesh Agricultural University.
-          
-          Specializes in Plant breeding,Genetics engineering.
-        </p>
-        <p class="expertise"><strong>Expertise:</strong> Plant Biotech, Genetics</p>
-      </div> 
-      <!-- Dr. Debajyoti Karmaker -->
-<div class="team-card">
-<img src="deb.jpg" alt="Dr. Debajyoti Karmaker">
-<h4>Dr. Debajyoti Karmaker</h4>
-<p class="role">Scientist (Bio-inspird robotics)</p>
-<p class="aff">Head(Undergraduate), AIUB</p>
-<p class="bio">
-          Leads Biomechatronics & Robotics department.<br>
-          Post Doctoral from Australian National University, Australia. Ph.D. from  University of Queensland (UQ),Australia.
-          Specializes in autonomous systems, bio-inspired robots, and human-robot interaction.
-</p>
-<p class="expertise"><strong>Expertise:</strong> Bio-inspird robotics, Biomechatronics</p>
-</div> 
-    </div>
-  </section>
-  <!-- 7.2. Team Directory -->
-  <section id="team">
-    <h2>Researcher and Lead </h2>
-    <div class="team-grid">
-    
-    <!-- S.M. Tawhid -->
-      <div class="team-card">
-        <img src="tawhid.jpeg" alt="S.M. Tawhid">
-        <h4>S.M. Tawhid</h4>
-        <p class="role">Director & Lead Researcher</p>
-        <p class="aff">INTI International University, Malaysia</p>
-        <p class="bio">
-          B.Sc. in CSE, AIUB<br>
-          Working at Dr. Anwarul Abedin Institute of Innovation (D2A2I), AIUB.<br>
-          Research Assistant, INTI International University, Malaysia.<br>
-          Former Research Associate, VU Amsterdam, Netherlands.
-        </p>
-        <p class="expertise"><strong>Expertise:</strong> Bio-inspird robotics,Computer Vision</p>
-      </div>
-
-      <!-- Kazi Tanzizul Haque -->
-      <div class="team-card">
-        <img src="tanzil.jpg" alt="Kazi Tanzizul Haque">
-        <h4>Kazi Tanzizul Haque</h4>
-        <p class="role">Co-Lead Researcher</p>
-        <p class="aff">Dr. Anwarul Abedin Institute of Innovation (D2A2I), AIUB</p>
-        <p class="bio">
-          B.Sc. in CSE, AIUB<br>
-          Working at Dr. Anwarul Abedin Institute of Innovation (D2A2I), AIUB.<br>
-          Former Research Assistant at AI and Applied Intelligence Research Lab (AAIRL), AIUB.
-        </p>
-        <p class="expertise"><strong>Expertise:</strong> ML, Computer Vision</p>
-      </div>
-
-      <!-- Abdul Kader Mohim -->
-      <div class="team-card">
-        <img src="abdul.png" alt="Abdul Kader Mohim">
-        <h4>Abdul Kader Mohim</h4>
-        <p class="role">Researcher</p>
-        <p class="aff">Dr. Anwarul Abedin Institute of Innovation (D2A2I), AIUB</p>
-        <p class="bio">
-          B.Sc. in CSE, AIUB<br>
-          Working at Dr. Anwarul Abedin Institute of Innovation (D2A2I), AIUB.<br>
-          Former Research Assistant at AI and Applied Intelligence Research Lab (AAIRL), AIUB.
-        </p>
-        <p class="expertise"><strong>Expertise:</strong> Embedded Systems</p>
-      </div>
-
-      <!-- Sk. Shahed Ali -->
-      <div class="team-card">
-        <img src="shahed.png" alt="Sk. Shahed Ali">
-        <h4>Sk. Shahed Ali</h4>
-        <p class="role">Researcher</p>
-        <p class="aff">AAIRL, AIUB</p>
-        <p class="bio">
-          B.Sc. in CSE, AIUB<br>
-          Working as a Research Assistant at AI and Applied Intelligence Research Lab (AAIRL), AIUB.
-        </p>
-        <p class="expertise"><strong>Expertise:</strong> AI , NLP</p>
-      </div> 
-   </div>  
-  </section>
-  <!-- 7.3. Team Directory -->
-  <section id="team">
-    <h2>Research Associate</h2>
-    <div class="team-grid">
-    
-    <!-- Shuva Saha -->
-      <div class="team-card">
-        <img src="shuvo.png" alt="Shuva Saha">
-        <h4>Shuva Saha</h4>
-        <p class="role">Research Associate</p>
-        <p class="aff">AIUB</p>
-        <p class="bio">
-          B.Sc. in CSE, AIUB<br>
-          M.Sc. in CSE (Ongoing), AIUB<br>
-          Former Research Assistant at Applied Intelligence and Informatics, Nottingham, UK.
-        </p>
-        <p class="expertise"><strong>Expertise:</strong> Data Science</p>
-      </div>  
-   </div>  
-  </section>
-  <!-- 7.4. Team Directory -->
-  <section id="team">
-    <h2>Software Development</h2>
-    <div class="team-grid">
-    <!-- Yash Rohan -->
-      <div class="team-card">
-        <img src="yash.jpeg" alt="Yash Rohan">
-        <h4>Yash Rohan</h4>
-        <p class="role">Lead Developer</p>
-        <p class="aff">NeuroFlight Lab</p>
-        <p class="bio">
-          B.Sc. in CSE, AIUB<br>
-          Research Assistant, INTI International University, Malaysia.<br>
-          Former Research Engineer at Applied Intelligence and Informatics, Nottingham, UK.
-        </p>
-        <p class="expertise"><strong>Expertise:</strong> Full-Stack, DevOps</p>
-      </div>    
-   </div>   
-  </section> 
-  <!-- 7.5. Team Directory -->
-  <section id="team">
-    <h2>Research Assistant</h2>
-    <div class="team-grid">
-    <!-- Mohammad Tanvir -->
-      <div class="team-card">
-        <img src="tanvir.jpg" alt="Mohammad Tanvir">
-        <h4>Mohammad Tanvir</h4>
-        <p class="role">Research Assistant</p>
-        <p class="aff">Woosong University</p>
-        <p class="bio">
-          B.Sc. in Artificial Intelligence, Woosong University, South Korea<br>
-          Robotic Engineer, My Robot Times, Daejeon, South Korea
-        </p>
-        <p class="expertise"><strong>Expertise:</strong> Robotics Engineering</p>
-      </div>
-
-      <!-- Sunipun Seemanta -->
-      <div class="team-card">
-        <img src="seemanto.jpg" alt="Sunipun Seemanta">
-        <h4>Sunipun Seemanta</h4>
-        <p class="role">Research Assistant</p>
-        <p class="aff">Ecodev Solutions</p>
-        <p class="bio">
-          B.Sc. in CSE, AIUB<br>
-          M.Sc. in CSE (Ongoing), AIUB<br>
-          Data Analyst, Ecodev Solution & Technologies
-        </p>
-        <p class="expertise"><strong>Expertise:</strong> Data Analytics</p>
-      </div>
-    
-   </div>
-    
-  </section>
-  
-  <!-- 7.6. Team Directory -->
-  <section id="team">
-    <h2>Administration</h2>
-    <div class="team-grid">
-    <!-- Shahriar Hossain Jayed -->
-      <div class="team-card">
-        <img src="jayed.png" alt="Shahriar Hossain Jayed">
-        <h4>Shahriar Hossain Jayed</h4>
-        <p class="role">Admin & Operations</p>
-        <p class="aff">AIUB</p>
-        <p class="bio">
-          B.Sc. in CSE (Ongoing), AIUB<br>
-          Manages operations, coordinates resources, and supports lab activities.
-        </p>
-        <p class="expertise"><strong>Expertise:</strong> Project Management</p>
-      </div>
-    
-   </div>
-    
-  </section>
-  
-  <!-- 7.7. Team Directory -->
-  <section id="team">
-    <h2>Research Intern</h2>
-    <div class="team-grid">
-    
-    <!-- Mahodi Al Kadir Zahin -->
-      <div class="team-card">
-        <img src="zahin.jpeg" alt="Mahodi Al Kadir Zahin">
-        <h4>Mahodi Al Kadir Zahin</h4>
-        <p class="role">Frontend Developer Intern</p>
-        <p class="aff">AIUB</p>
-        <p class="bio">
-          B.Sc. in CSE (Ongoing), AIUB<br>
-          Works on frontend development tasks for lab platforms and tools.
-        </p>
-        <p class="expertise"><strong>Expertise:</strong> UI/UX, React</p>
-      </div>
-
-      <!-- Arpon Paul Amit -->
-      <div class="team-card">
-        <img src="arpon.png" alt="Arpon Paul Amit">
-        <h4>Arpon Paul Amit</h4>
-        <p class="role">Research Intern</p>
-        <p class="aff">AIUB</p>
-        <p class="bio">
-          B.Sc. in CSE (Ongoing), AIUB<br>
-          Works on research and development tasks across AI and robotics projects.
-        </p>
-        <p class="expertise"><strong>Expertise:</strong> AI</p>
-      </div>
-
-       
-    <!-- Suchi Islam -->
-      <div class="team-card">
-        <img src="suchi.jpeg" alt="Suchi Islam">
-        <h4>Suchi Islam</h4>
-        <p class="role">Intern (Dataset Collection)</p>
-        <p class="aff">NeuroFlight Lab</p>
-        <p class="bio">
-          B.Sc. in CSE, AIUB<br>
-          Former IT Assistant Engineer, AIUB
-        </p>
-        <p class="expertise"><strong>Expertise:</strong> CyberSecurity Operations</p>
-      </div>
-
-   </div>
-    
-  </section>
-  
-  
-  <!-- 8. Infrastructure & Tools -->
-  <section id="infra" style="background: url('bird.png') center/cover no-repeat; color:white; position:relative;">
-    <div style="background:rgba(0,0,0,0.75); padding:80px 5%; border-radius:var(--radius);">
-      <h2 style="color:white;">Infrastructure & Tools</h2>
-      <div class="tools-list">
-        <div class="tool-item"><strong>Labs:</strong> Controlled Avian Environment, Wet Lab</div>
-        <div class="tool-item"><strong>Compute:</strong> GPU cluster (NVIDIA RTX A6000 x4), cloud credits (AWS/Google)</div>
-        <div class="tool-item"><strong>Software Stack:</strong> Python, PyTorch, TensorFlow, ROS2, Docker, Kubernetes, GitHub Actions, Unity/Unreal, Next.js, Tailwind</div>
-        <div class="tool-item"><strong>Collaboration:</strong> Slack, Notion, GitHub, Zotero</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 9. Policies & Guidelines -->
-  <section style="background:#f8f9fa;">
-    <h2>Policies & Guidelines</h2>
-    <div class="grid-3">
-      <div class="card">
-        <h3>Code of Conduct</h3>
-        <ul style="text-align:left; font-size:0.95rem;">
-          <li>Respect intellectual property and give proper credit</li>
-          <li>Follow ethical AI and biotech research standards</li>
-          <li>Maintain data privacy and security</li>
-          <li>Contribute to open-source where applicable</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Publication Policy</h3>
-        <ul style="text-align:left; font-size:0.95rem;">
-          <li>All research outputs aim for peer-reviewed journals or conferences</li>
-          <li>Open-access preferred; preprints on arXiv</li>
-          <li>Internal review before submission</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Software Release Policy</h3>
-        <ul style="text-align:left; font-size:0.95rem;">
-          <li>All internal tools: MIT or Apache 2.0 license</li>
-          <li>Version control mandatory (Git)</li>
-          <li>CI/CD pipeline required for production code</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- 10. Documentation -->
-  <section id="docs">
-    <h2>Official Documentation</h2>
-    <div class="doc-card">
-      <h3>NeuroFlight Lab Documentation v1.0</h3>
-      <p>Prepared for Initial Public Reference<br>November 01, 2025</p>
-      <a href="doc.pdf" target="_blank">Download PDF</a>
-    </div>
-  </section>
-
-  <!-- 11. Roadmap -->
-  <section id="roadmap">
-    <h2>Future Roadmap (2025–2027)</h2>
-    <div class="roadmap">
-      <div class="milestone">
-        <div class="milestone-content"><h3>2025</h3><p>Launch NeuroFlight Soft v1.0, Publish 4 papers, Host 2 workshops</p></div>
-        <div></div>
-      </div>
-      <div class="milestone">
-        <div></div>
-        <div class="milestone-content"><h3>2026</h3><p>Secure 3 industry grants, Release open-source CV toolkit, Expand to 50+ members</p></div>
-      </div>
-      <div class="milestone">
-        <div class="milestone-content"><h3>2027</h3><p>Establish Semiconductor lab (Malaysia or Netherlands), File 1 patent</p></div>
-        <div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 10. Contact -->
-  <section id="contact" style="background:#0f172a; color:white; text-align:center; padding:80px 5%;">
-    <h2>Get in Touch</h2>
-    <p style="font-size:1.2rem; margin:1.5rem 0;">
-      <strong>Email:</strong> <a href="mailto:info@neuroflightlab.org" style="color:var(--accent);">info@neuroflightlab.org</a><br>
-      <strong>Website:</strong> <a href="https://www.neuroflightlab.org" style="color:var(--accent);">www.neuroflightlab.org</a><br>
-      <strong>LinkedIn:</strong> <a href="https://linkedin.com/company/neuroflightlab" style="color:var(--accent);">NeuroFlight Lab</a><br>
-      <strong>Facebook:</strong> <a href="https://www.facebook.com/people/NeuroFlight-Lab/61579472205971/#" style="color:var(--accent);">NeuroFlight Lab</a><br>
-      <strong>Phone:</strong> <a href="+8801710549763" style="color:var(--accent);">+8801710549763</a><br>
-      
-      <strong>Location:</strong> Mirpur-10, Dhaka-1216, Bangladesh
-    </p>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 NeuroFlight Lab. All rights reserved. | Official Organization Documentation Version 1.0</p>
-  </footer>
-
-  <script>
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        e.preventDefault();
-        document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-      });
+    <script src="/js/app.js" defer></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+      const y=document.getElementById('year'); y.textContent=new Date().getFullYear();
+      if(window.NFL && NFL.renderLatestNews){ NFL.renderLatestNews('#homeNews', 3); }
+      const t=document.getElementById('toggleTheme');
+      if(t){ t.addEventListener('click', ()=> document.documentElement.classList.toggle('theme-dark')); }
     });
-
-    // Fade in on scroll
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = 1;
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.fade-in').forEach(el => {
-      el.style.opacity = 0;
-      el.style.transform = 'translateY(30px)';
-      el.style.transition = 'all 0.8s ease';
-      observer.observe(el);
-    });
-  </script>
+    </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
