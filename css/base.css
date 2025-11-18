@@ -165,13 +165,16 @@ a {
     outline: 1px solid var(--ring)
 }
 
-.people .person img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 12px;
-    margin-bottom: .6rem
+/* People card images — show full image without cropping */
+.people .person img{
+  width: 100%;
+  height: auto;            /* don't force height */
+  object-fit: contain;     /* show full image */
+  background: #0e1430;     /* letterbox background for empty space */
+  border-radius: 12px;
+  margin-bottom: .6rem;
 }
+
 
 .role {
     color: var(--muted)
@@ -365,3 +368,4 @@ a {
         height: 150px
     }
 }
+
