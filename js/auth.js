@@ -10,12 +10,13 @@
   // WARNING: Never hardcode real tokens in production.
   // Replace this with your new token variable at runtime or env-injected string.
   const GH = {
-    owner: 'smtawhid7',
-    repo:  'Neuroflight-lab',
-    branch:'main',
-    path:  'data/news.json',
-    token: 'REPLACE_WITH_NEW_TOKEN' // Do NOT commit the real token
-  };
+  owner: 'smtawhid7',
+  repo:  'Neuroflight-lab',
+  branch:'main',
+  path:  'data/news.json',
+  token: (window.__GH_TOKEN || '').trim()
+};
+
 
   function lsGet(key, fallback){
     try{
@@ -138,3 +139,4 @@
 
   document.addEventListener('DOMContentLoaded', setUI);
 })();
+
