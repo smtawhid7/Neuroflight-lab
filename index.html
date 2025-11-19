@@ -145,6 +145,17 @@
       if(window.NFL && NFL.renderLatestNews){ NFL.renderLatestNews('#homeNews', 3); }
     });
     </script>
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburgerMenu = document.querySelector('.hamburger-menu');
+            const nav = document.querySelector('.nav');
+
+            hamburgerMenu.addEventListener('click', function() {
+                nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+            });
+        });
+    </script>
 </body>
 </html>
+
 
