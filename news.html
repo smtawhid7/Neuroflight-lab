@@ -4,10 +4,9 @@
   <meta charset="utf-8">
   <title>News & Blog — Neuroflight Lab</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="News, achievements, and job posts.">
+  <meta name="description" content="News, achievements, and job posts from Neuroflight Lab.">
   <link rel="stylesheet" href="/css/base.css">
   <link rel="stylesheet" href="/css/components.css">
-  <link rel="stylesheet" href="/css/animations.css">
 </head>
 <body>
   <header class="site-header">
@@ -24,63 +23,96 @@
   <main class="section">
     <h1>News & Blog</h1>
 
+    <!-- ঐচ্ছিক স্ট্যাটিক ফিল্টার বাটন (JS ছাড়া শুধু সাজসজ্জার জন্য) -->
     <div id="newsFilters" class="filters">
-      <button data-type="all" class="chip active">All</button>
-      <button data-type="news" class="chip">News</button>
-      <button data-type="achievement" class="chip">Achievement</button>
-      <button data-type="job" class="chip">Job</button>
+      <span class="chip active">All</span>
+      <span class="chip">News</span>
+      <span class="chip">Achievement</span>
+      <span class="chip">Job</span>
     </div>
 
-    <div id="newsFeed" class="news-grid"></div>
+    <!-- স্ট্যাটিক পোস্ট গ্রিড: যতো খুশি <article> কার্ড কপি-পেস্ট করুন -->
+    <div id="newsFeed" class="news-grid">
+
+      <!-- পোস্ট 1 -->
+      <article class="news-card">
+        <img src="/assets/images/lab_open_day.jpg" alt="Lab Open Day">
+        <div class="pad">
+          <div class="meta">
+            <span class="chip">News</span>
+            <span class="muted">2025-11-19</span>
+          </div>
+          <h3 style="margin:.5rem 0 .25rem">Neuroflight Lab Open Day</h3>
+          <p class="muted">
+            আমাদের ল্যাবের ওপেন ডে সফলভাবে সম্পন্ন হয়েছে। নতুন কলাবোরেশন ও প্রোজেক্ট ডেমো প্রদর্শিত হয়েছে।
+          </p>
+          <p>
+            বিস্তারিত: আমাদের সফটওয়্যার ডেমো, স্টেরিও ভিশন সেটআপ এবং পাখির উড়াল বিশ্লেষণ টুলকিট উপস্থাপন করা হয়।
+          </p>
+        </div>
+      </article>
+
+      <!-- পোস্ট 2 -->
+      <article class="news-card">
+        <img src="/assets/images/grant_award.jpg" alt="Grant Award">
+        <div class="pad">
+          <div class="meta">
+            <span class="chip">Achievement</span>
+            <span class="muted">2025-10-30</span>
+          </div>
+          <h3 style="margin:.5rem 0 .25rem">Research Grant Awarded</h3>
+          <p class="muted">
+            বায়োমেকানিক্স ও কম্পিউটার ভিশন জয়ের যৌথ প্রোজেক্টে নতুন রিসার্চ গ্র্যান্ট পাওয়া গেছে।
+          </p>
+          <p>
+            এর মাধ্যমে ডেটা কালেকশন ও 3D ট্র্যাকিং পাইপলাইন আরও সম্প্রসারিত হবে।
+          </p>
+        </div>
+      </article>
+
+      <!-- পোস্ট 3 -->
+      <article class="news-card">
+        <img src="/assets/images/hiring_ml_engineer.jpg" alt="Hiring ML Engineer">
+        <div class="pad">
+          <div class="meta">
+            <span class="chip">Job</span>
+            <span class="muted">2025-09-15</span>
+          </div>
+          <h3 style="margin:.5rem 0 .25rem">We are hiring: ML Engineer</h3>
+          <p class="muted">
+            YOLO-ভিত্তিক স্মল অবজেক্ট ডিটেকশন ও ট্র্যাকিংয়ে অভিজ্ঞ প্রার্থীদের আমন্ত্রণ।
+          </p>
+          <p>
+            আবেদনের জন্য CV পাঠান: careers@neuroflightlab.org এ বা Contact পেজ দেখুন।
+          </p>
+        </div>
+      </article>
+
+      <!-- আরও পোস্ট চাইলে উপরের ব্লক কপি করে দিন -->
+    </div>
 
     <hr class="divider">
 
-    <section class="login-area">
-      <h2>Login to Post</h2>
-
-      <!-- Guest: login form -->
-      <form id="loginForm" class="form row guest-only">
-        <input type="text" name="username" placeholder="Username" required>
-        <input type="password" name="password" placeholder="Password" required>
-        <button class="btn" type="submit">Login</button>
-        <span id="loginMsg" class="muted"></span>
-      </form>
-
-      <!-- Authed: post form -->
-      <form id="postForm" class="form column authed-only" style="display:none">
-        <div class="row">
-          <input type="text" name="title" placeholder="Post title" required>
-          <select name="type" required>
-            <option value="news">News</option>
-            <option value="achievement">Achievement</option>
-            <option value="job">Job</option>
-          </select>
-        </div>
-        <textarea name="body" rows="5" placeholder="Write your post..." required></textarea>
-        <div class="row">
-          <input type="file" name="image" accept="image/*">
-          <button class="btn" type="submit">Publish</button>
-        </div>
-        <span class="muted">Publishes to data/news.json for everyone.</span>
-      </form>
+    <!-- চাইলে একটি সাধারণ How to contribute নোট -->
+    <section>
+      <h2>How to add a post</h2>
+      <ol>
+        <li>assets/images ফোল্ডারে ছবি রাখুন (যেমন: assets/images/my_post.jpg)।</li>
+        <li>news.html-এ একটি নতুন <article class="news-card"> ব্লক কপি করে শিরোনাম, তারিখ, বডি, এবং ইমেজ পাথ আপডেট করুন।</li>
+        <li>git add . → git commit → git push করুন; ডিপ্লয় হলে সবার জন্য দেখা যাবে।</li>
+      </ol>
     </section>
   </main>
 
-  <footer class="site-footer"><p>© <span id="year"></span> Neuroflight Lab</p></footer>
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Neuroflight Lab</p>
+  </footer>
 
-  <!-- Correct script order: auth first (login + submit), then news (render) -->
   <script>
-    // year
-    document.addEventListener('DOMContentLoaded', ()=> {
+    document.addEventListener('DOMContentLoaded', ()=>{
       const y = document.getElementById('year');
       if(y) y.textContent = new Date().getFullYear();
     });
   </script>
-
-  <script src="/js/config.local.js"></script>
-<script src="/js/auth.js"></script>
-<script src="/js/news.js"></script>
-
 </body>
 </html>
-
