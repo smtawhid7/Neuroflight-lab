@@ -37,14 +37,17 @@
 
     <section class="login-area">
       <h2>Login to Post</h2>
-      <form id="loginForm" class="form row">
+
+      <!-- Guest: login form -->
+      <form id="loginForm" class="form row guest-only">
         <input type="text" name="username" placeholder="Username" required>
         <input type="password" name="password" placeholder="Password" required>
         <button class="btn" type="submit">Login</button>
         <span id="loginMsg" class="muted"></span>
       </form>
 
-      <form id="postForm" class="form column hidden">
+      <!-- Authed: post form -->
+      <form id="postForm" class="form column authed-only" style="display:none">
         <div class="row">
           <input type="text" name="title" placeholder="Post title" required>
           <select name="type" required>
@@ -58,14 +61,26 @@
           <input type="file" name="image" accept="image/*">
           <button class="btn" type="submit">Publish</button>
         </div>
-        <span class="muted">Client-side only. Content is stored on this browser.</span>
+        <span class="muted">Publishes to data/news.json for everyone.</span>
       </form>
     </section>
   </main>
 
   <footer class="site-footer"><p>© <span id="year"></span> Neuroflight Lab</p></footer>
-  <script src="/js/app.js"></script>
-  <script src="/js/news.js"></script>
+
+  <!-- Correct script order: auth first (login + submit), then news (render) -->
+  <script>
+    // year
+    document.addEventListener('DOMContentLoaded', ()=> {
+      const y = document.getElementById('year');
+      if(y) y.textContent = new Date().getFullYear();
+    });
+  </script>
+
+  <!-- auth sets UI and handles submit; includes publish to GitHub if added -->
   <script src="/js/auth.js"></script>
+
+  <!-- news renders feed and listens to nfl_posts_updated -->
+  <script src="/js/news.js"></script>
 </body>
 </html>
