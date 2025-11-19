@@ -1,6 +1,0 @@
-/* Dark theme enhancements; toggled via .theme-dark on html */
-html.theme-dark {
-    --bg: #050914;
-    --panel: #0c1330;
-    --card: rgba(255,255,255,0.07);
-}
