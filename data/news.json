@@ -1,1 +1,7 @@
-[]
+const r = await fetch(url, { method:'PUT', headers:{ 'Authorization': `token ${GH.token}`, 'Content-Type':'application/json' }, body: JSON.stringify(body) });
+const txt = await r.text();
+if(!r.ok){
+  console.error('Commit failed', r.status, txt);
+  alert(`GitHub commit failed: ${r.status}\n${txt}`);
+  throw new Error(txt);
+}
