@@ -74,10 +74,15 @@
             const nav = document.querySelector('.nav');
 
             hamburgerMenu.addEventListener('click', function() {
-                nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+                if (nav.style.display === 'flex') {
+                    nav.style.display = 'none';
+                } else {
+                    nav.style.display = 'flex';
+                }
             });
         });
     </script>
 </body>
 </html>
+
 
