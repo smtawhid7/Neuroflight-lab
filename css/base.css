@@ -230,11 +230,12 @@ a.btn {
   } /* [attached_file:1] */
 
   .nav a { padding: .4rem .5rem; font-size: .95rem; } /* [attached_file:1] */
-  .people .person img { height: 180px; } /* [attached_file:1] */
+  .people .person img { height: 250px; } /* [attached_file:1] */
 }
 
 @media (max-width: 420px) {
   .cards { grid-template-columns: 1fr; } /* [attached_file:1] */
-  .people .person img { height: 150px; } /* [attached_file:1] */
+  .people .person img { height: 200px; } /* [attached_file:1] */
   .logo-text { font-size: 1rem; } /* minor shrink for ultra-narrow */ /* [attached_file:1] */
 }
+
