@@ -83,7 +83,7 @@ a.btn {
   border-bottom: 1px solid #dde3ff;
 } /* [attached_file:1] */
 
-.logo { display: flex; align-items: center; gap: .7rem; color: inherit; min-width: 0; } /* [attached_file:1] */
+.logo { display: flex; align-items: center; gap: .10rem; color: inherit; min-width: 0; } /* [attached_file:1] */
 .logo-img { width: 45px; height: 45px; } /* [attached_file:1] */
 .logo-text { font-weight: 800; } /* [attached_file:1] */
 
@@ -238,6 +238,7 @@ a.btn {
   .people .person img { height: 300px; } /* [attached_file:1] */
   .logo-text { font-size: 2rem; } /* minor shrink for ultra-narrow */ /* [attached_file:1] */
 }
+
 
 
 
