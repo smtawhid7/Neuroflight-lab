@@ -12,6 +12,7 @@
 <body>
     <header class="site-header">
         <a class="logo" href="/">Neuroflight Lab</a>
+        <button class="hamburger-menu">Menu</button>
         <nav class="nav">
             <a href="/administration.html">Administration</a>
             <a href="/innovation.html">Research and Innovation</a>
@@ -67,5 +68,16 @@
 
     <footer class="site-footer"><p>© <span id="year"></span> Neuroflight Lab</p></footer>
     <script src="/js/app.js"></script>
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburgerMenu = document.querySelector('.hamburger-menu');
+            const nav = document.querySelector('.nav');
+
+            hamburgerMenu.addEventListener('click', function() {
+                nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+            });
+        });
+    </script>
 </body>
 </html>
+
