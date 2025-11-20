@@ -1,5 +1,22 @@
-/* Default Light Theme */
 :root {
+  --bg: #0b1020;
+  --panel: #121832;
+  --text: #e9edf7;
+  --muted: #9aa4c7;
+  --brand: #6fd1ff;
+  --brand-2: #7aff9b;
+  --accent: #ffdf6e;
+  --danger: #ff7b7b;
+  --card: rgba(255,255,255,0.06);
+  --glass: rgba(255,255,255,0.08);
+  --ring: rgba(111,209,255,0.35);
+  --radius: 16px;
+  --radius-sm: 12px;
+  --radius-lg: 22px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.35);
+} /* [attached_file:1] */
+
+:root[data-theme="light"] {
   --bg: #f6f8ff;
   --panel: #ffffff;
   --text: #0b1020;
@@ -7,34 +24,7 @@
   --card: rgba(0,0,0,0.04);
   --glass: rgba(0,0,0,0.06);
   --ring: rgba(46,90,130,.35);
-
-  --brand: #6fd1ff;
-  --brand-2: #7aff9b;
-  --accent: #ffdf6e;
-  --danger: #ff7b7b;
-
-  --radius: 16px;
-  --radius-sm: 12px;
-  --radius-lg: 22px;
-  --shadow: 0 10px 30px rgba(0,0,0,0.10);
-}
-
-/* Dark Theme */
-:root[data-theme="dark"] {
-  --bg: #0b1020;
-  --panel: #121832;
-  --text: #e9edf7;
-  --muted: #9aa4c7;
-  --card: rgba(255,255,255,0.06);
-  --glass: rgba(255,255,255,0.08);
-  --ring: rgba(111,209,255,0.35);
-
-  --brand: #6fd1ff;
-  --brand-2: #7aff9b;
-  --accent: #ffdf6e;
-  --danger: #ff7b7b;
-}
-
+} /* [attached_file:1] */
 
 * { box-sizing: border-box; min-width: 0; } /* [attached_file:1] */
 
@@ -248,6 +238,7 @@ a.btn {
   .people .person img { height: 300px; } /* [attached_file:1] */
   .logo-text { font-size: 2rem; } /* minor shrink for ultra-narrow */ /* [attached_file:1] */
 }
+
 
 
 
