@@ -1,0 +1,522 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>S.M. Tawhid | Bio‑Inspired Robotics & Biomechatronics</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root{
+            --bg:#020617;
+            --surface:#020617;
+            --card:#020617;
+            --line:#1e293b;
+            --accent:#22d3ee;
+            --accent-soft:#22d3ee22;
+            --accent2:#a855f7;
+            --text:#e5e7eb;
+            --muted:#94a3b8;
+        }
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{
+            font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+            background:
+                radial-gradient(circle at top,#0f172a 0,#020617 55%,#000 100%);
+            color:var(--text);
+        }
+        a{color:var(--accent);text-decoration:none;}
+        a:hover{text-decoration:underline;}
+        .page{
+            max-width:1100px;
+            margin:0 auto;
+            padding:32px 18px 60px;
+        }
+        header{
+            text-align:center;
+            margin-bottom:40px;
+        }
+        .avatar{
+            width:132px;height:132px;          /* bigger picture */
+            margin:0 auto 16px;
+            border-radius:999px;
+            padding:4px;
+            background:conic-gradient(from 200deg,var(--accent),var(--accent2),#f97316,var(--accent));
+        }
+        .avatar-inner{
+            width:100%;height:100%;
+            border-radius:inherit;
+            background:radial-gradient(circle at 30% 20%,#0f172a,#020617);
+            display:flex;align-items:center;justify-content:center;
+            font-weight:700;font-size:2rem;color:var(--accent);
+        }
+        h1{
+            font-size:2.4rem;
+            letter-spacing:0.05em;
+        }
+        .headline{
+            margin-top:6px;
+            font-size:0.98rem;
+            color:var(--muted);
+        }
+        .badge-row{
+            margin-top:12px;
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:center;
+            gap:8px;
+        }
+        .badge{
+            border-radius:999px;
+            border:1px solid #1f2937;
+            background:#020617;
+            padding:6px 12px;
+            font-size:0.78rem;
+            text-transform:uppercase;
+            letter-spacing:0.11em;
+            color:var(--muted);
+        }
+        .contact{
+            margin-top:10px;
+            font-size:0.9rem;
+            color:var(--muted);
+        }
+        .contact span{margin:0 6px;}
+        main{
+            margin-top:10px;
+            display:grid;
+            grid-template-columns:minmax(0,1.8fr) minmax(0,1.2fr);
+            gap:26px;
+        }
+        section{
+            margin-bottom:28px;
+        }
+        h2{
+            font-size:1rem;
+            text-transform:uppercase;
+            letter-spacing:0.2em;
+            color:var(--muted);
+            margin-bottom:10px;
+        }
+        .card{
+            background:rgba(15,23,42,0.9);
+            border-radius:16px;
+            border:1px solid #1f2937;
+            padding:16px 18px;
+        }
+        .chips{
+            display:flex;
+            flex-wrap:wrap;
+            gap:8px;
+            margin-top:10px;
+        }
+        .chip{
+            font-size:0.78rem;
+            padding:6px 10px;
+            border-radius:999px;
+            border:1px solid #1f2937;
+            background:#020617;
+            color:var(--muted);
+        }
+        .timeline{
+            position:relative;
+            padding-left:22px;
+        }
+        .timeline::before{
+            content:"";
+            position:absolute;
+            left:7px;top:0;bottom:0;
+            width:2px;
+            background:linear-gradient(to bottom,var(--line),#020617);
+        }
+        .t-item{
+            position:relative;
+            margin-bottom:18px;
+        }
+        .t-dot{
+            position:absolute;
+            left:-2px;top:6px;
+            width:10px;height:10px;
+            border-radius:999px;
+            background:var(--bg);
+            border:2px solid var(--accent);
+            box-shadow:0 0 0 3px var(--accent-soft);
+        }
+        .t-body{
+            background:#020617;
+            border-radius:14px;
+            border:1px solid #1f2937;
+            padding:10px 12px 11px;
+        }
+        .t-period{
+            font-size:0.8rem;
+            text-transform:uppercase;
+            letter-spacing:0.14em;
+            color:var(--muted);
+            margin-bottom:2px;
+        }
+        .t-title{
+            font-size:0.97rem;
+            font-weight:600;
+        }
+        .t-place{
+            font-size:0.86rem;
+            color:var(--muted);
+            margin-bottom:4px;
+        }
+        ul{margin-left:16px;margin-top:4px;font-size:0.86rem;}
+        li{margin-bottom:3px;}
+        .list-simple li{margin-bottom:4px;}
+        .two-col{
+            display:grid;
+            grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+            gap:10px;
+        }
+        .pill-small{
+            display:inline-block;
+            margin-top:4px;
+            padding:4px 8px;
+            border-radius:999px;
+            background:#020617;
+            border:1px solid #1f2937;
+            font-size:0.75rem;
+            color:var(--muted);
+        }
+        @media(max-width:900px){
+            main{grid-template-columns:1fr;}
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <header>
+        <div class="avatar">
+  <img src="/assets/images/abir.jpg" alt="S.M. Tawhid" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+  <div class="avatar-inner" style="display: none;">ST</div>
+
+</div>
+
+        <h1>S.M. Tawhid</h1>
+        <p class="headline">
+            Bio‑Inspired Robotics · Biomechatronics · Physics‑Driven AI
+        </p>
+        <div class="badge-row">
+            <span class="badge">B.Sc. CSE · AIUB</span>
+            <span class="badge">NeuroFlight Lab Co‑Founder</span>
+            <span class="badge">Research · Biomechatronics · UAVs</span>
+        </div>
+        <p class="contact">
+            <a href="mailto:smtawhid77megh@gmail.com">smtawhid77megh@gmail.com</a>
+            <span>|</span>
+            <span>+8801709006947</span>
+            <span>|</span>
+            <span>Dhaka, Bangladesh</span>
+        </p>
+    </header>
+
+    <main>
+        <!-- LEFT COLUMN -->
+        <div>
+            <section>
+                <h2>Profile</h2>
+                <div class="card">
+                    <p style="font-size:0.9rem;">
+                        Research‑driven engineer exploring how birds avoid collisions, how brains and sensors shape motion,
+                        and how those principles transfer into intelligent UAVs, medical imaging systems, and stress‑aware AI.
+                    </p>
+                    <div class="chips">
+                        <span class="chip">Bio‑Inspired UAV Control</span>
+                        <span class="chip">Avian Flight Kinematics</span>
+                        <span class="chip">Biomechatronics</span>
+                        <span class="chip">Medical Imaging & XAI</span>
+                        <span class="chip">Reinforcement Learning</span>
+                        <span class="chip">Signal & Time‑Series Analysis</span>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Experience</h2>
+                <div class="timeline">
+
+                    <div class="t-item">
+                        <div class="t-dot"></div>
+                        <div class="t-body">
+                            <div class="t-period">2024 – Present</div>
+                            <div class="t-title">Researcher(visiting)</div>
+                            <div class="t-place">VU Amsterdam, Netherlands</div>
+                            <ul>
+                                <li>Contributing to physics‑driven and bio‑inspired robotics research in collaboration with international teams.</li>
+                                <li>Bridging avian flight insights with control and perception algorithms for autonomous systems.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="t-item">
+                        <div class="t-dot"></div>
+                        <div class="t-body">
+                            <div class="t-period">Sep 2025 – Present</div>
+                            <div class="t-title">Research Assistant</div>
+                            <div class="t-place">INTI International University, Malaysia</div>
+                            <ul>
+                                <li>Developing a personalized stress detection framework integrating facial micro‑expressions with ECG, EDA and respiration signals.</li>
+                                <li>Designing multimodal LSTM‑based models with interpretable outputs for clinical use.</li>
+                                <li>Working with WESAD and custom recordings from healthcare professionals.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="t-item">
+                        <div class="t-dot"></div>
+                        <div class="t-body">
+                            <div class="t-period">Oct 2025 – Present</div>
+                            <div class="t-title">Research Assistant</div>
+                            <div class="t-place">Dr. Anwarul Abedin Institute of Innovation, AIUB</div>
+                            <ul>
+                                <li>Implementing federated deep learning pipelines for privacy‑preserving medical image analysis.</li>
+                                <li>Comparing decentralized and centralized training for security, scalability and generalization.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="t-item">
+                        <div class="t-dot"></div>
+                        <div class="t-body">
+                            <div class="t-period">Jan 2025 – Present</div>
+                            <div class="t-title">Co‑Founder & CEO</div>
+                            <div class="t-place">NeuroFlight Lab</div>
+                            <ul>
+                                <li>Developing neuro‑adaptive flight controllers that mix reinforcement learning with physics‑based constraints.</li>
+                                <li>Transferring policies from simulation to real drones via trajectory analytics and closed‑loop testing.</li>
+                                <li>Drawing inspiration from bird collision‑avoidance strategies for safe, agile UAV maneuvers.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="t-item">
+                        <div class="t-dot"></div>
+                        <div class="t-body">
+                            <div class="t-period">2022 – 2023</div>
+                            <div class="t-title">Research Assistant</div>
+                            <div class="t-place">North South University, Bangladesh</div>
+                            <ul>
+                                <li>Supported projects in computer vision and biomedical signal / image analysis.</li>
+                                <li>Worked closely with faculty on experiment design, data processing and model evaluation.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="t-item">
+                        <div class="t-dot"></div>
+                        <div class="t-body">
+                            <div class="t-period">Feb 2024 – Feb 2025</div>
+                            <div class="t-title">Student Researcher</div>
+                            <div class="t-place">Mahdy Research Academy (NSU)</div>
+                            <ul>
+                                <li>Explored few‑shot learning for retinal vessel segmentation with U‑Net and advanced variants.</li>
+                                <li>Focused on clinically practical models with minimal annotation requirements.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="t-item">
+                        <div class="t-dot"></div>
+                        <div class="t-body">
+                            <div class="t-period">2023 – 2025</div>
+                            <div class="t-title">Member</div>
+                            <div class="t-place">Engineering Students Association of Bangladesh (ESAB)</div>
+                            <ul>
+                                <li>Joined workshops, seminars and collaborative events to build professional and technical skills.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="t-item">
+                        <div class="t-dot"></div>
+                        <div class="t-body">
+                            <div class="t-period">2023 – 2025</div>
+                            <div class="t-title">Member</div>
+                            <div class="t-place">AIUB Community of Engineering Students (ACES)</div>
+                            <ul>
+                                <li>Participated in community‑driven engineering initiatives, knowledge‑sharing and project showcases.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section>
+                <h2>Research Papers</h2>
+                <div class="card">
+                    <ul class="list-simple">
+                        <li><strong>Multi‑Bird Collision Avoidance among Budgerigars: A 3D Kinematic Study</strong><br>
+                            Avian flight kinematics for decentralized UAV swarm strategies.</li>
+                        <li><strong>The Invisible Line at 270 Milliseconds Where Budgerigars End Negotiation and Commit</strong><br>
+                            Temporal decision boundary in bird flight for reactive robot control.</li>
+                        <li><strong>A Flight Signals Collision Avoidance through Asymmetric Wing Use</strong><br>
+                            Asymmetric wing actuation as a bio‑inspired signal for collision avoidance.</li>
+                        <li><strong>A Power‑Limited Turning Ceiling in Avian Collision Avoidance: From Biological Discovery to Bio‑Inspired UAV Control</strong><br>
+                            Power‑limited turns in birds informing safe turning envelopes for UAVs.</li>
+                        <li><strong>Brain Tumor Segmentation with XAI</strong><br>
+                            Explainable tumor segmentation that highlights decision regions for clinicians.</li>
+                        <li><strong>Enhancing GAN Training for Image Generation</strong><br>
+                            Improved GAN stability and image quality; accepted at RUEC 1st International Conference (Rajshahi University).</li>
+                        <li><strong>Few‑Shot Retinal Vessel Segmentation</strong><br>
+                            Segmentation frameworks for retinal vessels with minimal annotated data.</li>
+                        <li><strong>Video‑based Flight Pattern Mining of Birds in Controlled Tunnel Environments Using YOLOv8 and Data Analytics</strong><br>
+                            YOLOv8 and analytics to mine flight patterns from tunnel experiments.</li>
+                        <li><strong>Mining Bird Flight Trajectories in Tunnel Environments: A Computer Vision and Data Analytics Approach</strong><br>
+                            Trajectory mining and clustering to derive motion primitives for UAVs.</li>
+                        <li><strong>Personalized Stress and Anxiety Detection Using Temporal Micro‑Expression Dynamics with Explainable AI</strong><br>
+                            Temporal micro‑expression and physiological fusion for stress and anxiety detection.</li>
+                        <li><strong>Flight Path Chronicles: Deciphering Individual Signatures through Time‑Series Analysis and Clustering</strong><br>
+                            Individual‑specific flight path signatures via time‑series clustering.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>Technical Projects</h2>
+                <div class="card">
+                    <div class="two-col">
+                        <div>
+                            <strong>Real‑Time Face Detection</strong>
+                            <div class="pill-small">Python · OpenCV · Haar Cascade</div>
+                            <p style="font-size:0.85rem;margin-top:4px;">
+                                Real‑time face detection pipeline for webcam video streams.
+                            </p>
+                            <p style="font-size:0.82rem;margin-top:2px;">
+                                <a href="https://github.com/smtawhid7/Face-detection" target="_blank">GitHub → Face Detection</a>
+                            </p>
+                        </div>
+                        <div>
+                            <strong>Topic Modeling of News Articles</strong>
+                            <div class="pill-small">R · LDA</div>
+                            <p style="font-size:0.85rem;margin-top:4px;">
+                                LDA‑based topic models to uncover latent themes in news corpora.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="two-col" style="margin-top:10px;">
+                        <div>
+                            <strong>CampusCafe</strong>
+                            <div class="pill-small">C · UI · DB</div>
+                            <p style="font-size:0.85rem;margin-top:4px;">
+                                Café management system with role‑based login and persistent storage.
+                            </p>
+                            <p style="font-size:0.82rem;margin-top:2px;">
+                                <a href="https://github.com/smtawhid7/CampusCafe" target="_blank">GitHub → CampusCafe</a>
+                            </p>
+                        </div>
+                        <div>
+                            <strong>Event Management System</strong>
+                            <div class="pill-small">HTML · CSS · JavaScript · PHP</div>
+                            <p style="font-size:0.85rem;margin-top:4px;">
+                                Web platform for event listings, registrations, and admin control.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div>
+            <section>
+                <h2>Education</h2>
+                <div class="card">
+                    <ul class="list-simple">
+                        <li><strong>B.Sc. Eng., Computer Science & Engineering</strong><br>
+                            American International University‑Bangladesh (AIUB)<br>
+                            Major: Information System Data Science · Minor: Computer Vision & Pattern Recognition</li>
+                        <li><strong>Higher Secondary School Certificate, Science</strong><br>
+                            Engineering University School & College, BUET Campus, Dhaka</li>
+                        <li><strong>Secondary School Certificate, Science</strong><br>
+                            Akkelpur F.U. Govt. Pilot School, Joypurhat</li>
+                        <li><strong>Junior School Certificate</strong><br>
+                            Akkelpur F.U. Govt. Pilot School, Joypurhat · JSC scholarship (Govt. of Bangladesh)</li>
+                        <li><strong>Primary School Certificate</strong><br>
+                            Sri Kristopur Govt. Primary School, Joypurhat · PSC scholarship (Govt. of Bangladesh)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>Skills</h2>
+                <div class="card">
+                    <p style="font-size:0.86rem;font-weight:600;margin-bottom:6px;">Coding & Tools</p>
+                    <div class="chips">
+                        <span class="chip">Python</span>
+                        <span class="chip">R</span>
+                        <span class="chip">MATLAB</span>
+                        <span class="chip">PHP</span>
+                        <span class="chip">ASP .NET</span>
+                        <span class="chip">OpenCV</span>
+                        <span class="chip">YOLOv8</span>
+                    </div>
+                    <p style="font-size:0.86rem;font-weight:600;margin:12px 0 6px;">Domains</p>
+                    <div class="chips">
+                        <span class="chip">Bio‑Inspired Robotics</span>
+                        <span class="chip">Biomechatronics</span>
+                        <span class="chip">Flight Dynamics</span>
+                        <span class="chip">Medical Image Analysis</span>
+                        <span class="chip">Signal Processing</span>
+                        <span class="chip">Reinforcement Learning</span>
+                    </div>
+                    <p style="font-size:0.86rem;font-weight:600;margin:12px 0 6px;">Languages & Interests</p>
+                    <div class="chips">
+                        <span class="chip">Bangla (Native)</span>
+                        <span class="chip">English (Intermediate)</span>
+                        <span class="chip">Football (since 2015)</span>
+                        <span class="chip">Movies (since 2014)</span>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Research Experience</h2>
+                <div class="card">
+                    <ul class="list-simple">
+                        <li>Research Assistant, INTI International University, Malaysia.</li>
+                        <li>Research Assistant, Dr. Anwarul Abedin Institute of Innovation, AIUB.</li>
+                        <li>Research Associate, VU Amsterdam, Netherlands.</li>
+                        <li>Research Assistant, North South University, Bangladesh.</li>
+                        <li>Student researcher, Mahdy Research Academy under Dr. Mahdy Rahman Chowdhury (NSU).</li>
+                        <li>Supervised by Dr. Debajyoti Karmaker, Associate Professor, AIUB.</li>
+                        <li>Supervised by Mahfujur Rahman, Assistant Professor, AIUB.</li>
+                    </ul>
+                    <p style="font-size:0.8rem;margin-top:10px;">
+                        Mahdy Research Academy: 
+                        <a href="https://sites.google.com/view/onlinecoursebymdy/home" target="_blank">
+                            https://sites.google.com/view/onlinecoursebymdy/home
+                        </a>
+                    </p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Awards & References</h2>
+                <div class="card">
+                    <p style="font-size:0.86rem;font-weight:600;margin-bottom:6px;">Awards</p>
+                    <ul class="list-simple">
+                        <li>Best Poster Award – Thesis Day, Summer 2024–2025.</li>
+                        <li>JSC and PSC scholarships – Government of Bangladesh.</li>
+                    </ul>
+                    <p style="font-size:0.86rem;font-weight:600;margin:12px 0 6px;">References</p>
+                    <ul class="list-simple" style="font-size:0.84rem;">
+                        <li><strong>Dr. Debajyoti Karmaker</strong><br>
+                            Associate Professor & Head, Undergraduate Program, FST, AIUB<br>
+                            Email: d.karmaker@aiub.edu</li>
+                        <li><strong>Prof. Dr. Dip Nandi</strong><br>
+                            Professor & Associate Dean, Faculty of Science and Technology, AIUB<br>
+                            Email: dip.nandi@aiub.edu</li>
+                        <li><strong>Mahfujur Rahman</strong><br>
+                            Assistant Professor, AIUB<br>
+                            Email: mahfuj@aiub.edu</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </main>
+</div>
+</body>
+</html>
